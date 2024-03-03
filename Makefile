@@ -9,7 +9,7 @@ $(TARGET) : $(SOURCES)
 	$(CC) $(CFLAGS) $^
 
 clean:
-	rm -rf build/*
+	del /s /q build\*
 
 flash:
-	cp build/main.hex D:\main.hex
+	copy build\main.hex D:
