@@ -34,5 +34,12 @@ static void CLK_init(void)
          __delay_ms(LED_DELAY);
       }
 
+      for (int i = 7; i > 0; i--) {
+         /* turn on the next PORT C pin */
+         LATC = 1 << i;
+
+         __delay_ms(LED_DELAY);
+      }
+
     }
  }
