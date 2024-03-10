@@ -27,11 +27,9 @@ static void CLK_init(void)
    /* main program loop */
    while(1)
    {
-      LATC = 0x01;
-      __delay_ms(LED_DELAY);
-      for (int i = 0; i < 7; i++) {
+      for (int i = 0; i < 8; i++) {
          /* turn on the next PORT C pin */
-         LATC = LATC << 1;
+         LATC = 1 << i;
 
          __delay_ms(LED_DELAY);
       }
