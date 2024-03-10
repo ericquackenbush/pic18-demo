@@ -1,19 +1,15 @@
 CC = xc8
-CHIP = 18F47Q10
-BUILD = build/
+
+CFLAGS = --chip=18F47Q10 --outdir=build
+
+SOURCES = main.c
 TARGET = demo
-CURIOSITY_NANO = D:
 
-CFLAGS = --chip=$(CHIP) --outdir=$(BUILD)
-
-$(TARGET): $(BUILD)*.p1
-	$(CC) $(CFLAGS) -O$@.hex $^ 
-
-$(BUILD)*.p1: *.c
-	$(CC) $(CFLAGS) --PASS1 $^ 
+$(TARGET) : $(SOURCES)
+	$(CC) $(CFLAGS) $^
 
 clean:
-	rm -f $(BUILD)/*
+	del /s /q build\*
 
 flash:
-	cp $(BUILD)/$(TARGET).hex $(CURIOSITY_NANO)
+	copy build\main.hex D:
