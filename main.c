@@ -4,7 +4,7 @@
 #pragma config WDTE = OFF
 
 #define _XTAL_FREQ 1000000 // Fosc frequency for _delay()
-#define LED_DELAY 100     // delay in ms
+#define LED_DELAY 50     // delay in ms
 
 static void CLK_init(void);
 
